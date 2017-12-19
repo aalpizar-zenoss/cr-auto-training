@@ -1,3 +1,7 @@
 name, change
 alvaro, init
 yacdaniel, change B
+david, created 'dnieto_file_A_1.rb' with text 'dnieto has added some text'
+david, created 'dnieto_file_A_2.rb' with no text added
+yacdaniel, change123
+Nora, new files
