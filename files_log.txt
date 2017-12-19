@@ -1,2 +1,4 @@
 name, change
 alvaro, init
+david, created 'dnieto_file_A_1.rb' with text 'dnieto has added some text'
+david, created 'dnieto_file_A_2.rb' with no text added
