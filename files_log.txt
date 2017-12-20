@@ -6,3 +6,4 @@ david, created 'dnieto_file_A_2.rb' with no text added
 yacdaniel, change123
 Nora, new files
 david, created 'dnieto_file_B.rb' with text 'More text added to this new file'
+nora, echo
