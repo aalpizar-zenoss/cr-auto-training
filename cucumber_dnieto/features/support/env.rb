@@ -1,5 +1,7 @@
+require 'selenium-webdriver'
 require 'capybara'
 require 'capybara/cucumber'
+require 'capybara/rspec'
 
 Capybara.configure do |config|
 	config.app_host = "https://zenoss5.zsd-master"
