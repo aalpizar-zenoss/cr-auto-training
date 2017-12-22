@@ -1,55 +1,53 @@
-Given("I have tried to log in") do
-   p "module5"
+Given("I am on the login page") do
+   visit ("/")
 end
 
-Given("I tried to enter wrong information") do
-    p "module5"
-end
-
-When("I attend to login with invalid credentials") do
-    p "module5"
+When("I attent to login with invalid credentials") do
+    fill_in('username', :with => 'admin1')
+    fill_in('passwrd', :with => 'Zenoss')
 end
 
 When("I press the submit button") do
-  p "module5"
+  click_button('loginButton')
 end
 
 Then("a message shoul be displayed") do
-    p "module5"
+    has_css?('.error')
 end
 
-When("I attend to login without type a username") do
-    p "module5"
+When("I attent to login without type a username") do
+     fill_in('username', :with => ' ')
 end
 
 When("the password is correct") do
-    p "module5"
+    fill_in('passwrd', :with => 'Zenoss22')
 end
 
 Then("a message should be displayed") do
-   p "module5"
+    has_css?('.error')
 end
 
-When("I attend to login without type a password") do
-    p "module5"
+When("I attent to login without type a password") do
+    fill_in('passwrd', :with => ' ')
 end
 
 When("the username is correct") do
-    p "module5"
+     fill_in('username', :with => 'admin')
 end
 
-When("I attend to login with correct credentials") do
-    p "module5"
+When("I attent to login with correct credentials") do
+      fill_in('username', :with => 'admin')
+      fill_in('passwrd', :with => 'Zenoss22')
 end
 
 Then("the Dashboard page should be displayed") do
-    p "module5"
+     has_css?('combobox-1060-labelEl')
 end
 
 Then("I press the logout button") do
-  pending # Write code here that turns the phrase above into concrete actions
+    click 'sign out'
 end
 
 Then("I should be redirect to the login page") do
-  pending # Write code here that turns the phrase above into concrete actions
+ 	   has_css?('username')
 end
