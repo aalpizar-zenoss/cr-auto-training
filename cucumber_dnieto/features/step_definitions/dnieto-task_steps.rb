@@ -1,64 +1,34 @@
-Given("User is on https://zenoss.zsd-master/") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
-end
-
-When("User navigate to Login Page") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
+Given("User navigate to Login Page") do
+  print "User is in the Login Page: https://zenoss5.zsd-master"
+  visit("/")
 end
 
 When("User enters Username and Password") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
+  fill_in('username', :with => 'myusername')
+  fill_in('passwrd', :with => 'mypassword')
 end
 
-When("User clicks Login button") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
-end
-
-Then("Error message is displayed") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
-end
-
-When("User leaves Username field empty") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
-end
-
-When("User enters Password") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
+And("User clicks Login button") do
+  click_button('loginButton')
 end
 
 Then("Error message is displayed") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
+  print "Your session has expired or you have entered an incorrect username or password."
 end
 
-When("User enters Username") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
+And("User enters Password") do
+  fill_in('passwrd', :with => 'mypassword')
 end
 
-When("User leaves Password field empty") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
+And("User enters Username") do
+  fill_in('username', :with => 'myusername')
 end
 
-Given("User is successfully logged into https://zenoss.zsd-master/") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
+When("User enters Valid Username and Password") do
+  fill_in('username', :with => 'admin')
+  fill_in('passwrd', :with => 'Zenoss22')
 end
 
-When("User clicks Logout button on top of the website") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
-end
-
-Then("User is logged out from ResMgr") do
-  # Write code here that turns the phrase above into concrete actions
-  print "Test test test"
+And("User clicks Logout button") do
+  click_on 'sign out'
 end
