@@ -7,5 +7,6 @@ yacdaniel, change123
 yacdaniel, change B
 Nora, new files
 nora, echo
+dmartinez, created 'dmartinez_file_B.rb'
 dmartinez, created 'dmartinez_file_A_1.rb'
 dmartinez, created 'dmartinez_file_A_2.rb'
