@@ -29,7 +29,36 @@ When("User enters Valid Username and Password") do
   @login_page.password_field.set "Zenoss22"
 end
 
-And("User performs Logout process") do
+And("User clicks INFRASTRUCTURE tab") do
   @dashboard_page = DashboardPage.new
+  @dashboard_page.infrastructure_button.click
+end
+
+And("User clicks Add Device button") do
+  @infrastructure_page = InfrastructurePage.new
+  sleep 5
+  @infrastructure_page.add_button.click
+end
+
+And("User clicks Add a Single Device button") do
+  @infrastructure_page.add_single_device.click
+end
+
+And("User adds required fields in Add Single Device overlay") do
+  @overlay_page = AddSingleDeviceOverlay.new
+  @overlay_page.hostname_field.set "10.88.121.239"
+  @overlay_page.title_field.set "dnieto-tb1"
+ #@overlay_page.device_class_field.set "/Server/SSH/Linux"
+  sleep 5
+  @overlay_page.add_button.click
+end
+
+#Then("User can see the added device") do
+#  sleep 60
+#  expect(@infrastructure_page).to include("10.88.121.239")
+#end
+
+Then("User performs Logout process") do
+  sleep 60
   @dashboard_page.logout_button.click
 end
