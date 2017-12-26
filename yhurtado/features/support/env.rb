@@ -1,11 +1,14 @@
 require 'capybara'
 require 'capybara/cucumber'
+require 'capybara/dsl'
+require 'rspec'
+require 'site_prism'
 
 Capybara.configure do |config|
   config.app_host = 'https://yhurtado-tb1.zenoss.lab:54321'
   config.default_driver = :selenium_chrome
   config.default_max_wait_time = 10
-  config.default_selector = :xpath
+  config.default_selector = :css
   config.run_server = false
 end
 
