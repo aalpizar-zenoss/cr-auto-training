@@ -1,34 +1,35 @@
 Given("User navigate to Login Page") do
-  print "User is in the Login Page: https://zenoss5.zsd-master"
-  visit("/")
+  @login_page = LoginPage.new
+  @login_page.load
 end
 
 When("User enters Username and Password") do
-  fill_in('username', :with => 'myusername')
-  fill_in('passwrd', :with => 'mypassword')
+  @login_page.username_field.set "username123"
+  @login_page.password_field.set "password123"
 end
 
 And("User clicks Login button") do
-  click_button('loginButton')
+  @login_page.login_button.click
 end
 
 Then("Error message is displayed") do
-  print "Your session has expired or you have entered an incorrect username or password."
+  expect(@login_page).to_not be_displayed 
 end
 
 And("User enters Password") do
-  fill_in('passwrd', :with => 'mypassword')
+  @login_page.password_field.set "password123"
 end
 
 And("User enters Username") do
-  fill_in('username', :with => 'myusername')
+  @login_page.username_field.set "username123"
 end
 
 When("User enters Valid Username and Password") do
-  fill_in('username', :with => 'admin')
-  fill_in('passwrd', :with => 'Zenoss22')
+  @login_page.username_field.set "admin"
+  @login_page.password_field.set "Zenoss22"
 end
 
-And("User clicks Logout button") do
-  click_on 'sign out'
+And("User performs Logout process") do
+  @dashboard_page = DashboardPage.new
+  @dashboard_page.logout_button.click
 end

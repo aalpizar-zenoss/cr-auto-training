@@ -22,4 +22,4 @@ Scenario: logout from resmgr
 	Given User navigate to Login Page
 	When User enters Valid Username and Password
 	And User clicks Login button
-	And User clicks Logout button
+	Given User performs Logout process
