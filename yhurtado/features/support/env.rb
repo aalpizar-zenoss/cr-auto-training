@@ -3,6 +3,7 @@ require 'capybara/cucumber'
 require 'capybara/dsl'
 require 'rspec'
 require 'site_prism'
+require 'selenium-webdriver'
 
 Capybara.configure do |config|
   config.app_host = 'https://yhurtado-tb1.zenoss.lab:54321'
@@ -13,7 +14,9 @@ Capybara.configure do |config|
 end
 
 Capybara.register_driver :selenium_chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument("--start-maximized")
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
 Capybara.register_driver :selenium_firefox do |app|
