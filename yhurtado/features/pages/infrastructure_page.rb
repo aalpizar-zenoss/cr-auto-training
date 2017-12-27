@@ -13,17 +13,17 @@ class InfrastructurePage < SitePrism::Page
 
   def add_single_device ip, device_class
     xpath_device_classs = '//li[contains(text(),"'+ device_class + '")]'
-    wait_for_add_device_button(10)
+    wait_until_add_device_button_visible(10)
     add_device_button.click
-    wait_for_add_singledevice_menu(10)
+    wait_until_add_singledevice_menu_visible(10)
     add_singledevice_menu.click
-    wait_for_modal_form(10)
+    wait_until_modal_form_visible(10)
     fill_in 'deviceName', with: ip
     fill_in 'deviceClass', with: device_class
     find(:xpath, xpath_device_classs).click
     model_device_checkbox.click
     add_singledevice_submit.click
-    wait_for_flaire_message_jobs(10) 
+    wait_until_flaire_message_jobs_visible(10) 
     puts flaire_message_jobs.text
   end
 
