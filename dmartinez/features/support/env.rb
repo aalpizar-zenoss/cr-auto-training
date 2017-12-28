@@ -1,6 +1,7 @@
 require 'capybara'
 require 'capybara/cucumber'
 require 'selenium-webdriver'
+require 'site_prism'
 
 Capybara.configure do |config|
 	config.app_host = 'https://10.88.120.20:54321'
