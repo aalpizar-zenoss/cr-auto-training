@@ -1,53 +1,53 @@
 Given("I am located within the Zenoss Resmgr Login Page") do
-  pending # Write code here that turns the phrase above into concrete actions
+	visit("/")
 end
 
 When("I enter an incorrect username") do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in('username', :with => 'fake22')
 end
 
 When("I enter an incorrect password") do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in('passwrd', :with => 'Zenoss222')
 end
 
 When("I enter the submit button") do
-  pending # Write code here that turns the phrase above into concrete actions
+  click_button('loginButton')
 end
 
 Then("A message should appear") do
-  pending # Write code here that turns the phrase above into concrete actions
+  page.has_xpath?('//*[contains(@class, "error")]')
 end
 
 When("I don't enter a Username") do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in('username', :with => '')
 end
 
 
 
 When("I enter a valid password") do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in('passwrd', :with => 'Zenoss22')
 end
 
 When("I don't enter a password") do
-  pending # Write code here that turns the phrase above into concrete actions
+    fill_in('passwrd', :with => '')
 end
 
 When("I enter a valid Username") do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in('username', :with => 'admin')
 end
 
 When("I  enter a valid password") do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in('passwrd', :with => 'Zenoss22')
 end
 
 Then("the Dashboard page should be displayed") do
-  pending # Write code here that turns the phrase above into concrete actions
+  page.has_xpath?('//*[contains(@class, "bg")]')
 end
 
 When("I click Log Out") do
-  pending # Write code here that turns the phrase above into concrete actions
+  page.find(:xpath,"//*[text()='#{SIGN OUT}']").click
 end
 
 Then("I see the login page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  page.has_xpath?('//*[contains(@class, "submitbutton")]')
 end
