@@ -4,7 +4,7 @@ require 'capybara/cucumber'
 require 'capybara/rspec'
 
 Capybara.configure do |config|
-	config.app_host = "https://zenoss5.zsd-master"
+	config.app_host = "https://zenoss5.auto-set6-vm1.zenoss.lab"
 	config.default_driver = :selenium_chrome
 	config.default_max_wait_time = 10
 	config.default_selector = :xpath
