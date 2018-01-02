@@ -1,53 +1,65 @@
 Given("I am on the login page") do
-   visit ("/")
+   @login = Login.new
+   @login.load
 end
 
 When("I attent to login with invalid credentials") do
-    fill_in('username', :with => 'admin1')
-    fill_in('passwrd', :with => 'Zenoss')
+    expect(@login).to have_user_name
+    @login.user_name.set "nora" 
+    @login.password.set "123"
+    #fill_in('username', :with => 'admin1')
+    #fill_in('passwrd', :with => 'Zenoss')
 end
 
 When("I press the submit button") do
-  click_button('loginButton')
+  @login.submit.click
+  @dashboard = Dashboard.new
+  #click_button('loginButton')
 end
 
-Then("a message shoul be displayed") do
-    has_css?('.error')
+Then("A message is displayed") do
+  expect(@login).to have_message
+  #has_css?('.error')
 end
 
 When("I attent to login without type a username") do
-     fill_in('username', :with => ' ')
+    @login.user_name.set "" 
+    #fill_in('username', :with => ' ')
 end
 
-When("the password is correct") do
-    fill_in('passwrd', :with => 'Zenoss22')
-end
-
-Then("a message should be displayed") do
-    has_css?('.error')
+When(/^the password is "(.*?)"/) do |password|
+    @login.password.set "password"
+    #fill_in('passwrd', :with => password)
 end
 
 When("I attent to login without type a password") do
-    fill_in('passwrd', :with => ' ')
+      @login.password.set ""
+    #fill_in('passwrd', :with => ' ')
 end
 
 When("the username is correct") do
-     fill_in('username', :with => 'admin')
+    @login.user_name.set "admin"
+     #fill_in('username', :with => 'admin')
 end
 
 When("I attent to login with correct credentials") do
-      fill_in('username', :with => 'admin')
-      fill_in('passwrd', :with => 'Zenoss22')
+      @login.user_name.set "admin"
+      @login.password.set "Zenoss22"
+      #fill_in('username', :with => 'admin')
+      #fill_in('passwrd', :with => 'Zenoss22')
 end
 
 Then("the Dashboard page should be displayed") do
-     has_css?('combobox-1060-labelEl')
+      expect(@dashboard).to be_displayed
+     #has_css?('combobox-1060-labelEl')
 end
 
 Then("I press the logout button") do
-    click 'sign out'
+      @dashboard.signout.click
+    #click_on'sign out'
 end
 
 Then("I should be redirect to the login page") do
- 	   has_css?('username')
+   expect(@login).to have_user_name
+ 	   #has_css?('username')
 end
