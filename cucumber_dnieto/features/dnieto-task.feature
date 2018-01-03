@@ -18,8 +18,16 @@ Scenario: Attempt to login without password
 	And User clicks Login button
 	Then Error message is displayed
 
-Scenario: logout from resmgr
+Scenario Outline: Add a Server Linux device and see the device on the Infrastructure list
 	Given User navigate to Login Page
 	When User enters Valid Username and Password
 	And User clicks Login button
-	Given User performs Logout process
+	And User clicks INFRASTRUCTURE tab
+	And User clicks Add Device button
+	And User clicks Add a Single Device button
+	Given User adds single device with <ip> <title> and <deviceclass>
+	Then User performs Logout process
+
+	Examples:
+      | ip | title | deviceclass |
+      | 10.88.121.239 | dnieto-tb2 | /Server/SSH/Linux |
