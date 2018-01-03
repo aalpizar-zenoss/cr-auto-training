@@ -44,13 +44,14 @@ Given /^I click on LDAP left menu$/ do
   click_link('LDAP')
 end
 
-When /^I add a LDAP server with host "(.*?)", manager DN "(.*?)", manager PWD "(.*?)"$/ do |host, manager_dn, password|
-  @advance.add_ldap_configuration(host, manager_dn, password)
+When "I add a LDAP server with:" do |table|
+  t_hash = table.hashes
+  @advance.add_ldap_configuration(t_hash[0]['host'], t_hash[0]['manager DN'], t_hash[0]['manager PWD'])
 end
 
-
-When /^I configure the LDAP with users base DN "(.*?)", groups base DN "(.*?)"$/ do |users_base_dn, groups_base_dn|
-  @advance.configure_ldap_plugin(users_base_dn, groups_base_dn)
+When "I configure the LDAP with:" do |table|
+  t_hash = table.hashes
+  @advance.configure_ldap_plugin(t_hash[0]['users base DN'], t_hash[0]['groups base DN'])
 end
   
 When /^I map the LDAP group "(.*?)" with the role "(.*?)"$/ do |group, role|
@@ -59,9 +60,10 @@ When /^I map the LDAP group "(.*?)" with the role "(.*?)"$/ do |group, role|
   click_link('LDAP')
 end
 
-Then /^I should see the LDAP configuration with host "(.*?)" and manager DN "(.*?)"$/ do |host, manager_dn|
-  expect(@advance.host_input.value).to eq(host)
-  expect(@advance.manager_dn_input.value).to eq(manager_dn)
+Then "I should see the LDAP configuration with:" do |table| 
+  t_hash = table.hashes
+  expect(@advance.host_input.value).to eq(t_hash[0]['host'])
+  expect(@advance.manager_dn_input.value).to eq(t_hash[0]['manager DN'])
 end
 
 Then /^I should see the message (.*?)$/ do |message|

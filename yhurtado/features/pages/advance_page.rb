@@ -11,10 +11,11 @@ class AdvancePage < SitePrism::Page
     add_ldap_button.click
     within('div.x-window-default-plain') do
       fill_in 'host_0', with: host
-      sleep 1
+      sleep 0.3
       fill_in 'managerDN', with: manager_dn
-      sleep 1
+      sleep 0.3
       fill_in 'managerPassword', with: password
+      sleep 0.3
       click_link_or_button('Next')
     end
   end
@@ -22,7 +23,7 @@ class AdvancePage < SitePrism::Page
   def configure_ldap_plugin users_base_dn, groups_base_dn
     within('div.x-window-default-plain') do
       fill_in 'userBaseDN', with: users_base_dn
-      sleep 1
+      sleep 0.3
       fill_in 'groupBaseDN', with: groups_base_dn
       click_link_or_button('Next')
     end
@@ -30,7 +31,6 @@ class AdvancePage < SitePrism::Page
 
   def map_ldap_group group, role
     within('div.x-window-default-plain') do
-      sleep 1
       click_link_or_button('Finish')
     end
   end
