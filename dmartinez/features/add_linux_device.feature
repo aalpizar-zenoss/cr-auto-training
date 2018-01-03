@@ -10,7 +10,7 @@ Scenario: Adding the Linux Server Device
 	Then I should see a list of "Add Devices" options
 	When I click on "Add a Single Device"
 	Then I should be able to see a modal to enter device details
-	Then I should enter the Linux Server IP Address '10.88.120.20'
+	When I  enter the Linux Server IP Address '10.88.120.20'
 	And I should select the Device Class '/Server/SSH/Linux'
 	Then I should click on 'More...'
 	Then I should set as the zCommandUsername as 'root' and the zCommandPassword 'D0gP0und!'

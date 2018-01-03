@@ -33,21 +33,22 @@ Then("I should be able to see a modal to enter device details") do
   expect(@infrastructure).to have_add_device_modal
 end
 
-Then("I should enter the Linux Server IP Address {string}") do |string|
-  @infrastructure.device_ip_address.set "10.88.120.20"
+When("I  enter the Linux Server IP Address {string}") do |string|
+    @infrastructure.device_ip_address.set string
 end
 
 Then("I should select the Device Class {string}") do |string|
-  @infrastructure.device_class.set "/Server/SSH/Linux"
+  @infrastructure.device_class.set string
 end
 
 Then("I should click on {string}") do |string|
-  @infrastructure.more_link.click
+  click_on string
+  #@infrastructure.more_link.click
 end
 
 Then("I should set as the zCommandUsername as {string} and the zCommandPassword {string}") do |string, string2|
-  @infrastructure.server_username.set "root"
-  @infrastructure.server_password.set "D0gP0und!"
+  @infrastructure.server_username.set string
+  @infrastructure.server_password.set string2
 end
 
 Then("I should click on the {string}") do |string|
@@ -59,8 +60,12 @@ Then("I should refresh the device list") do
 end
 
 When("I see the Infraestructure page displaying I should be able to see the device just added") do
-  sleep(20)
+  #sleep(20)
+  Timeout.timeout(6000) do
   @infrastructure.refresh.click
-  sleep(10)
+  end
+  #sleep(10)
+  Timeout.timeout(6000) do
   expect(@infrastructure).to have_added_device
+  end
 end
