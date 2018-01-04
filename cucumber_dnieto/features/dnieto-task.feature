@@ -5,7 +5,7 @@ Scenario: Attempt to login with invalid credentials
 	When User enters invalid Username and Password:
 
 	| username         | password    |
-    | notvalidusername | notvalidpwd |
+        | notvalidusername | notvalidpwd |
 
 	And User clicks Login button
 	Then Error message is displayed 
@@ -43,7 +43,7 @@ Scenario: Add a Server Linux device and see the device on the Infrastructure lis
 	And User clicks Add a Single Device button
 	Given User adds single device with the following values:
 
-		| ip            |    title   |    deviceclass    |
+	| ip            |    title   |    deviceclass    |
     	| 10.88.121.239 | dnieto-tb2 | /Server/SSH/Linux |
 	
 	Then User clicks add button
