@@ -14,3 +14,7 @@ end
 Capybara.register_driver :selenium_firefox do |app|
 	Capybara::Selenium::Driver.new(app, browser: :firefox, marionette: true, desired_capabilities: Selenium::WebDriver::Remote::Capabilities.firefox(acceptInsecureCerts: true))
 end
+
+Capybara.register_driver :selenium_chrome do |app|
+	Capybara::Selenium::Driver.new(app, browser: :chrome, args: ["start-maximized"])
+end
