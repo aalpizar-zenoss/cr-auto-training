@@ -38,7 +38,8 @@ When("I click on Add single device button") do
 end
 
 Then("the Add a Single Device modal should be displayed") do
-    expect(@infraestructure.add_single).to have_modal
+    #expect(@infraestructure.add_single).to have_modal
+    expect(@infraestructure).to have_add_single
 end
 
 When(/^I search for the device class "(.*?)"$/) do |class_name|

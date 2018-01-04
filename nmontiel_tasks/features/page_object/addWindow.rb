@@ -1,6 +1,6 @@
 class Addwindow < SitePrism::Section
 
-	element :modal,"//*[contains(@class,'x-window-closable')]"
+	#element :modal,"//*[contains(@class,'x-window-closable')]"
 	element :dropdown, "//*[@id='add-device_class-triggerWrap']//following-sibling::td//div"
 	element :hostname, "//*[@id='add-device-name-inputEl']"
 	element :device_title,"//*[(@name='title')]"

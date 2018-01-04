@@ -13,7 +13,6 @@ class Infraestructure < SitePrism::Page
 	element :refresh,"//*[@id='refreshdevice-button-btnInnerEl']"
 	element :device_added,"//*[//div[contains(@class, 'x-grid-cell-inner ')]//*[contains(text(),'test-rhel6.zenoss.loc')]]"
 
-
 	def find_device(device_added)
 		page.find("//*[contains(@class, 'x-grid-cell-inner')]//*[contains(text(),'%s')]" % device_added).click
 	end
