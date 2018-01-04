@@ -30,9 +30,9 @@ end
 When("I enter the LDAP credentials:") do |table|
 data = table.raw
 
-@advanced.host.set data[1][0]
-@advanced.manager.set data[1][1]
-@advanced.manager_password.set data[1][2]
+@advanced.ldap_modal.host.set data[1][0]
+@advanced.ldap_modal.manager.set data[1][1]
+@advanced.ldap_modal.manager_password.set data[1][2]
 
 end
 
@@ -43,8 +43,8 @@ end
 Then("Enter the Configuration Details") do |table|
 data = table.raw
 
-@advanced.users_base_DN.set data[1][0]
-@advanced.groups_base_DN.set data[1][1]
+@advanced.ldap_modal.users_base_DN.set data[1][0]
+@advanced.ldap_modal.groups_base_DN.set data[1][1]
 
 end
 
