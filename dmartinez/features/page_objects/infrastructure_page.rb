@@ -11,6 +11,5 @@ class InfrastructurePage < SitePrism::Page
 	element :server_username, "//*[@id='zCommandUsername-inputEl']"
 	element :server_password, "//*[@id='zCommandPassword-inputEl']"
 	element :add_button, "//*[text()='Add']"
-	element :added_device, "//*[text()='10.88.120.20']"
 	element :refresh, "//*[text()='Refresh']"
 end 

@@ -1,7 +1,7 @@
 Given("I am logged as an admin in RM using the username: admin and the password: Zenoss{int}") do |int|
     @login_page = LoginPage.new 
     @login_page.load
-    @login_page.username.set "admins"
+    @login_page.username.set "admin"
     @login_page.passwrd.set "Zenoss22"
     @login_page.login_button.click
 end
@@ -43,7 +43,6 @@ end
 
 Then("I should click on {string}") do |string|
   click_on string
-  #@infrastructure.more_link.click
 end
 
 Then("I should set as the zCommandUsername as {string} and the zCommandPassword {string}") do |string, string2|
@@ -56,16 +55,13 @@ Then("I should click on the {string}") do |string|
 end
 
 Then("I should refresh the device list") do
+ refresh_attempts = 10
+ refresh_attempts.times do
   @infrastructure.refresh.click
 end
+end
 
-When("I see the Infraestructure page displaying I should be able to see the device just added") do
-  #sleep(20)
-  Timeout.timeout(6000) do
-  @infrastructure.refresh.click
-  end
-  #sleep(10)
-  Timeout.timeout(6000) do
-  expect(@infrastructure).to have_added_device
-  end
+When("I see the Infraestructure page displaying I should be able to see the Linux Server IP Address {string} just added") do |string|
+  expect(@infrastructure).to have_xpath("//*[text()='"+string+"']")
+
 end

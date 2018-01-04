@@ -16,5 +16,5 @@ Scenario: Adding the Linux Server Device
 	Then I should set as the zCommandUsername as 'root' and the zCommandPassword 'D0gP0und!'
 	Then I should click on the 'Add'
 	Then I should refresh the device list
-	When I see the Infraestructure page displaying I should be able to see the device just added
+	When I see the Infraestructure page displaying I should be able to see the Linux Server IP Address '10.88.120.20' just added
 	

@@ -4,7 +4,7 @@ require 'selenium-webdriver'
 require 'site_prism'
 
 Capybara.configure do |config|
-	config.app_host = 'https://10.88.120.20:54321'
+	config.app_host = 'https://zenoss5.sramirez-tb1.zenoss.lab'
 	config.default_driver = :selenium_firefox
 	config.default_max_wait_time = 10
 	config.default_selector = :xpath
