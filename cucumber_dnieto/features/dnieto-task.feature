@@ -18,16 +18,17 @@ Scenario: Attempt to login without password
 	And User clicks Login button
 	Then Error message is displayed
 
-Scenario Outline: Add a Server Linux device and see the device on the Infrastructure list
+Scenario: Add a Server Linux device and see the device on the Infrastructure list
 	Given User navigate to Login Page
 	When User enters Valid Username and Password
 	And User clicks Login button
 	And User clicks INFRASTRUCTURE tab
 	And User clicks Add Device button
 	And User clicks Add a Single Device button
-	Given User adds single device with <ip> <title> and <deviceclass>
-	Then User performs Logout process
+	Given User adds single device with the following values:
 
-	Examples:
-      | ip | title | deviceclass |
-      | 10.88.121.239 | dnieto-tb2 | /Server/SSH/Linux |
+	| ip            |    title   |    deviceclass    |
+    	| 10.88.121.239 | dnieto-tb2 | /Server/SSH/Linux |
+	
+	Then User clicks add button
+	Then User performs Logout process
