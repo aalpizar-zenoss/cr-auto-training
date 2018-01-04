@@ -3,9 +3,10 @@ Given /^User navigate to Login Page$/ do
   @login_page.load
 end
 
-When /^User enters Username and Password$/ do
-  @login_page.username_field.set "username123"
-  @login_page.password_field.set "password123"
+When /^User enters invalid Username and Password:$/ do |table|
+  table_hash = table.hashes
+  @login_page.username_field.set table_hash[0]['username']
+  @login_page.password_field.set table_hash[0]['password']
 end
 
 And /^User clicks Login button$/ do
@@ -16,17 +17,20 @@ Then /^Error message is displayed$/ do
   expect(@login_page).to_not be_displayed 
 end
 
-And /^User enters Password$/ do
-  @login_page.password_field.set "password123"
+And /^User enters Password only:$/ do |table|
+  table_hash = table.hashes
+  @login_page.password_field.set table_hash[0]['password']
 end
 
-And /^User enters Username$/ do
-  @login_page.username_field.set "username123"
+And /^User enters Username only:$/ do |table|
+  table_hash = table.hashes
+  @login_page.username_field.set table_hash[0]['username']
 end
 
-When /^User enters Valid Username and Password$/ do
-  @login_page.username_field.set "admin"
-  @login_page.password_field.set "Zenoss22"
+When /^User enters Valid Username and Password:$/ do |table|
+  table_hash = table.hashes
+  @login_page.username_field.set table_hash[0]['username']
+  @login_page.password_field.set table_hash[0]['password']
 end
 
 And /^User clicks INFRASTRUCTURE tab$/ do
@@ -45,12 +49,16 @@ And /^User clicks Add a Single Device button$/ do
   sleep 5
 end
 
-Given /^User adds single device with (.*?) (.*?) and (.*?)$/ do |ip, title, deviceclass|
-  @infrastructure_page.add_overlay.device_class_field.set deviceclass
-  @infrastructure_page.add_device_class(deviceclass)
-  @infrastructure_page.add_overlay.hostname_field.set ip
-  @infrastructure_page.add_overlay.title_field.set title
+Given /^User adds single device with the following values:$/ do |table|
+  table_hash = table.hashes
+  @infrastructure_page.add_overlay.device_class_field.set table_hash[0]['deviceclass']
+  @infrastructure_page.add_device_class(table_hash[0]['deviceclass'])
+  @infrastructure_page.add_overlay.hostname_field.set table_hash[0]['ip']
+  @infrastructure_page.add_overlay.title_field.set table_hash[0]['title']
   sleep 5
+end
+
+Then /^User clicks add button$/ do
   @infrastructure_page.add_overlay.add_button.click 
 end
 
