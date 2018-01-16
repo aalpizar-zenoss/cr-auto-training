@@ -10,3 +10,5 @@ nora, echo
 dmartinez, created 'dmartinez_file_B.rb'
 dmartinez, created 'dmartinez_file_A_1.rb'
 dmartinez, created 'dmartinez_file_A_2.rb'
+jacko, created 'jrivera_file_A_1.rb'
+jacko, created 'jrivera_file_A_2.rb'
