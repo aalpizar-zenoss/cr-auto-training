@@ -10,3 +10,7 @@ nora, echo
 dmartinez, created 'dmartinez_file_B.rb'
 dmartinez, created 'dmartinez_file_A_1.rb'
 dmartinez, created 'dmartinez_file_A_2.rb'
+
+squiros, squiros_file_A_1.rb
+squiros, squiros_file_A_2.rb
+
