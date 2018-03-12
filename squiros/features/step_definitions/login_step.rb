@@ -1,12 +1,12 @@
 
-Given (/^I am on the Zenoss loginpage$/) do
+Given (/^I am on the Zenoss page$/) do
   # pending
 end
 
-When (/^enter with valid username$/) do
+When (/^I click on SIGN OUT button$/) do
   # pending
 end
 
-Then (/^error login shown$/) do
+Then (/^the loginpage is shown$/) do
   # pending
 end
