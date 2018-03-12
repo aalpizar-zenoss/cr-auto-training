@@ -3,11 +3,7 @@ Given (/^I am on the Zenoss loginpage$/) do
   # pending
 end
 
-When (/^enter with invalid username$/) do
-  # pending
-end
-
-And (/^enter with invalid password$/) do
+When (/^enter with valid password$/) do
   # pending
 end
 
