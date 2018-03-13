@@ -1,6 +1,7 @@
 require 'capybara'
 require 'capybara/cucumber'
 require 'selenium-webdriver'
+require 'capybara/rspec'
 
 Capybara.configure do |config|
   config.app_host = 'https://zenoss5.ip-10-111-2-219.zenoss.loc'
@@ -16,6 +17,6 @@ Capybara.register_driver :selenium_chrome do |app|
 end
 
 Capybara.register_driver :selenium_firefox do |app|
-  Selenium::WebDriver::Firefox.driver_path = 'geckodriver'
+  Selenium::WebDriver::Firefox.driver_path = 'C:\Users\Sergio Gonzalez\Documents\Drivers\geckodriver.exe'
   Capybara::Selenium::Driver.new(app, browser: :firefox, marionette: true)
 end
