@@ -2,6 +2,7 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'selenium-webdriver'
 require 'capybara/rspec'
+require 'site_prism'
 
 Capybara.configure do |config|
   config.app_host = 'https://zenoss5.ip-10-111-2-219.zenoss.loc'
