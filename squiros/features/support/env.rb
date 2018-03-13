@@ -18,6 +18,6 @@ Capybara.register_driver :selenium_chrome do |app|
 end
 
 Capybara.register_driver :selenium_firefox do |app|
-  Selenium::WebDriver::Firefox.driver_path = 'C:\Users\Sergio Gonzalez\Documents\Drivers\geckodriver.exe'
+  Selenium::WebDriver::Firefox.driver_path = 'geckodriver'
   Capybara::Selenium::Driver.new(app, browser: :firefox, marionette: true)
 end
