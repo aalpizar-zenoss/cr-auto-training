@@ -25,3 +25,4 @@ In order to Login in Zenoss we have to enter login details
 		Then I am on the Zenoss page
 		When I click the SIGN OUT button
 		Then I am on the Zenoss loginpage
+

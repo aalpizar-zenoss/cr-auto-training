@@ -1,4 +1,3 @@
-
 Given (/^I am on the Zenoss loginpage$/) do
   @login = LoginPage.new
   @login.load # visit("/")
