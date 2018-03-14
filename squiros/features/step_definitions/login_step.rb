@@ -25,7 +25,6 @@ Then (/^some error login is shown, like this "(.*?)"$/) do |error_msj|
   # has_css?('.error')
   # has_content?('entered an incorrect username or password')
   expect(page).to have_text error_msj
-
 end
 
 When (/^enter this "(.*?)" valid password$/) do |pass|
@@ -44,23 +43,18 @@ Then (/^enter with valid username and password:$/) do |table|
   # fill_in('username', :with => table_hash[0]['username'])
   # fill_in('passwrd', :with => table_hash[0]['password'])
   @login.set_login_data(table_hash[0]['username'], table_hash[0]['password'])
+  # click_button('loginButton')
+  @login.login_click()
 end
 
 Then (/^I am on the Zenoss page$/) do
-  # click_button('loginButton')
-  @login.login_click()
+  @dashboard = Dashboard.new
+  @dashboard.load
   # page.has_title?('Zenoss: Dashboard')
   expect(page).to have_title "Zenoss: Dashboard"
 end
 
 When (/^I click the SIGN OUT button$/) do
-  @dashboard = Dashboard.new
-  @dashboard.load
   # find(:xpath, '//*[@id="sign-out-link"]').click
   @dashboard.sign_out()
-end
-
-And (/^the loginpage is shown$/) do
-  # page.has_title?('Login')
-  expect(page).to have_title "Login"
 end

@@ -20,10 +20,8 @@ In order to Login in Zenoss we have to enter login details
 	Scenario: Logout from resmgr
 		Given I am on the Zenoss loginpage
 		Then enter with valid username and password:
-
-		| password      |username    |
+		| password      | username   |
 		| SerMeds22     | admin      |
-
 		Then I am on the Zenoss page
 		When I click the SIGN OUT button
-		Then the loginpage is shown
+		Then I am on the Zenoss loginpage
