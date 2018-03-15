@@ -13,11 +13,11 @@ Capybara.configure do |config|
 end
 
 Capybara.register_driver :selenium_chrome do |app|
-  Selenium::WebDriver::Chrome.driver_path = 'C:\Users\Sergio Gonzalez\Documents\Drivers\chromedriver.exe'
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument("--start-maximized")
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
 Capybara.register_driver :selenium_firefox do |app|
-  Selenium::WebDriver::Firefox.driver_path = 'C:\Users\Sergio Gonzalez\Documents\Drivers\geckodriver.exe'
-  Capybara::Selenium::Driver.new(app, browser: :firefox, marionette: true)
+  Capybara::Selenium::Driver.new(app, browser: :firefox)
 end
