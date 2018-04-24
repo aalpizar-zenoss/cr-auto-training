@@ -18,3 +18,4 @@ squiros, created the file squiros_file_B.rb
 isantacruz, created 'isantacruz_file_A_1.rb'
 isantacruz, created 'isantacruz_file_A_2.rb'
 isantacruz, edited 'isantacruz_file_A_1.rb'
+isantacruz, removed 'isantacruz_file_A_2.rb'
