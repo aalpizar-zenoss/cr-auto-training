@@ -1,0 +1,4 @@
+username: '#username'
+password: '#passwrd'
+login_btn: '#loginButton'
+logout_btn: '#sign-out-link a'
